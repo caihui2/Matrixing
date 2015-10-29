@@ -15,6 +15,7 @@ public:
 
     //Overwrite operator
     Vector operator *(float scalar);
+    float operator *(Vector &v);
     Vector operator /(float scalar);
     Vector operator -(Vector &v);
     Vector operator +(Vector &v);
@@ -23,4 +24,6 @@ public:
 void printVector(Vector &v);
 float getVectorLength(Vector &v);
 Vector standardizeVector(Vector &v);
+float getAngle(Vector &v1 , Vector &v2);
+Vector getMultiplication(Vector &v1, Vector &v2);
 #endif // VECTOR_H

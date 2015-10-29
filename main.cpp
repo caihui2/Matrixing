@@ -4,10 +4,11 @@ using namespace std;
 
 int main()
 {
-    Vector mVector(5, 0, 0);
-    Vector mVector2(-1, 8, 0);
-   float length = mVector.distanceCalculation(false,mVector2);
-    cout << "length:" << length << endl;
+    Vector mVector(1, 3, 4);
+    Vector mVector2(2, -5, 8);
+    Vector rv =  getMultiplication(mVector, mVector2);
+    printVector(rv);
+   // cout << "length:" << angle << endl;
     return 0;
 }
 

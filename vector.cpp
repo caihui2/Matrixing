@@ -70,6 +70,11 @@ Vector Vector::operator *(float scalar)
     return v;
 }
 
+float Vector::operator *(Vector &v)
+{
+    return this->x * v.x + this->y * v.y + this->z * v.z;
+}
+
 Vector Vector::operator /(float scalar)
 {
     float modulus = 1.0f / scalar;
@@ -144,6 +149,31 @@ Vector standardizeVector(Vector &v)
     float x = v.x / length;
     float y = v.y / length;
     float z = v.z / length;
+    Vector rv(x, y, z);
+    return rv;
+}
+
+/**
+ * @brief getAngle
+ * @return double Vector angle
+ *               a .b
+ * thea = arcos -------------
+ *               ||a|| ||b||
+ */
+float getAngle(Vector &v1, Vector &v2)
+{
+    float v1Leng = getVectorLength(v1);
+    float v2Leng = getVectorLength(v2);
+    float result = v1 * v2;
+    float thea = acos(result / (v1Leng * v2Leng)) * 180 / 3.1415926;
+    return thea;
+}
+
+Vector getMultiplication(Vector &v1, Vector &v2)
+{
+    float x = v1.y * v2.z - v1.z * v2.y;
+    float y = v1.z * v2.x - v1.x * v2.z;
+    float z = v1.x * v2.y - v1.y * v2.x;
     Vector rv(x, y, z);
     return rv;
 }
