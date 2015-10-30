@@ -4,11 +4,13 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    vector.cpp
+    vector.cpp \
+    matrix3x3.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
 
 HEADERS += \
-    vector.h
+    vector.h \
+    matrix3x3.h
 
