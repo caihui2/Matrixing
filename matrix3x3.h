@@ -5,6 +5,14 @@
 extern const int X_ROTATION;
 extern const int Y_ROTATION;
 extern const int Z_ROTATION;
+
+extern const int XY_PROJECTION;
+extern const int XZ_PROJECTION;
+extern const int YZ_PROJECTION;
+
+extern const int X_MIRROR;
+extern const int Y_MIRROR;
+extern const int Z_MIRROR;
 class Matrix3X3
 {
 public:
@@ -14,6 +22,9 @@ public:
     Matrix3X3();
     Matrix3X3(float m11, float m12, float m13, float m21, float m22, float m23, float m31, float m32, float m33);
     void setRotationMatrix(int direction, float theta);
+    void setScale(Vector &v);
+    void setNormalProjection(int projectionMode);
+    void setMirror(int mirrorMode);
 
 
     //Overwrite operator

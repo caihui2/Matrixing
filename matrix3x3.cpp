@@ -6,6 +6,14 @@ const int X_ROTATION = 1;
 const int Y_ROTATION = 2;
 const int Z_ROTATION = 3;
 
+const int XY_PROJECTION = 4;
+const int XZ_PROJECTION = 5;
+const int YZ_PROJECTION = 6;
+
+const int X_MIRROR = 7;
+const int Y_MIRROR = 8;
+const int Z_MIRROR = 9;
+
 Matrix3X3::Matrix3X3():m11(0),m12(0),m13(0),m21(0),m22(0),m23(0),m31(0),m32(0),m33(0)
 {
 }
@@ -60,9 +68,79 @@ void Matrix3X3::setRotationMatrix(int direction, float theta)
        m31 = sin; m32 = 0; m33 = cos;
        break;
    case Z_ROTATION:
+       m11 = cos; m12= sin; m13 = 0;
+       m21 = -sin; m22=cos; m23 = 0;
+       m31 = 0;    m32 = 0; m33 = 1;
        break;
    }
 }
+
+/**
+ * @brief Matrix3X3::setScale
+ * @param v scale vector
+ * formula
+ * [x  0  0]
+ * [0  y  0]
+ * [0  0  z]
+ */
+void Matrix3X3::setScale(Vector &v)
+{
+    m11 = v.x; m12 = 0; m13 = 0;
+    m21 = 0;  m22 = v.y; m23 = 0;
+    m31 = 0;  m32 = 0;   m33 = v.z;
+}
+
+/**
+ * @brief Matrix3X3::setNormalProjection
+ * @param projectionMode
+ */
+void Matrix3X3::setNormalProjection(int projectionMode)
+{
+    switch (projectionMode) {
+    case XY_PROJECTION:
+       m11 = 1; m12 = 0; m13 = 0;
+       m21 = 0; m22 = 1; m23 = 0;
+       m31 = 0; m32 = 0;  m33= 0;
+        break;
+    case XZ_PROJECTION:
+       m11 = 1; m12 = 0; m13 = 0;
+       m21 =0;  m22 = 0; m23 = 0;
+       m31 = 0; m32 = 0; m33 = 1;
+        break;
+    case YZ_PROJECTION:
+       m11 = 0; m12 = 0;  m13 = 0;
+       m21 = 0; m22 = 1;  m23 = 0;
+       m31 = 0; m32 = 0; m33 = 1;
+        break;
+    }
+}
+
+/**
+ * @brief Matrix3X3::setMirror
+ * @param mirrorMode
+ */
+void Matrix3X3::setMirror(int mirrorMode)
+{
+    switch (mirrorMode) {
+    case X_MIRROR:
+       m11 = -1; m12 = 0; m13 = 0;
+       m21 = 0;  m22 = 1; m23 = 0;
+       m31 = 0;  m32 = 0; m33 = 1;
+        break;
+    case Y_MIRROR:
+        m11 = 1; m12 = 0; m13 = 0;
+        m21 = 0; m22 =-1;  m23 = 0;
+        m31 =0;  m32 = 0;  m33 = 1;
+        break;
+    case Z_MIRROR:
+        m11 = 1; m12 = 0; m13 = 0;
+        m21 = 0; m22 =1;  m23 = 0;
+        m31 =0;  m32 = 0;  m33 = -1;
+        break;
+    }
+}
+
+
 
 Vector Matrix3X3::operator *(Vector &v)
 {
@@ -104,8 +182,8 @@ Matrix3X3 transpose(Matrix3X3 &m)
     return matrix;
 }
 
-void calculateSinCos(float *sin, float *cos, float theta)
+void calculateSinCos(float *sins, float *coss, float theta)
 {
-    *sin = sin(theta);
-    *cos = cos(theta);
+    *sins = sin(theta);
+    *coss = cos(theta);
 }
