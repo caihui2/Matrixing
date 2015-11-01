@@ -14,6 +14,10 @@ const int X_MIRROR = 7;
 const int Y_MIRROR = 8;
 const int Z_MIRROR = 9;
 
+const int XY_SHEAR = 10;
+const int XZ_SHEAR = 11;
+const int YZ_SHEAR = 12;
+
 Matrix3X3::Matrix3X3():m11(0),m12(0),m13(0),m21(0),m22(0),m23(0),m31(0),m32(0),m33(0)
 {
 }
@@ -140,6 +144,26 @@ void Matrix3X3::setMirror(int mirrorMode)
     }
 }
 
+void Matrix3X3::setShear(int shearMode, float s, float t)
+{
+    switch (shearMode) {
+    case XY_SHEAR:
+        m11 = 1; m12 =0; m13 = 0;
+        m21 = 0; m22 = 1; m23 = 0;
+        m31 = s; m32 = t;  m33 = 1;
+    case XZ_SHEAR:
+        m11 = 1; m12 =0; m13 = 0;
+        m21 = s; m22 = 1; m23 = t;
+        m31 = 0; m32 = 0;  m33 = 1;
+      break;
+    case YZ_SHEAR:
+        m11 = 1; m12 =s; m13 = t;
+        m21 = 0; m22 = 1; m23 = 0;
+        m31 = 0; m32 = 0;  m33 = 1;
+        break;
+    }
+}
+
 
 
 Vector Matrix3X3::operator *(Vector &v)
@@ -186,4 +210,11 @@ void calculateSinCos(float *sins, float *coss, float theta)
 {
     *sins = sin(theta);
     *coss = cos(theta);
+}
+
+float getDeterminant(Matrix3X3 &m)
+{
+    float determinant = m.m11 * m.m22 * m.m33 + m.m12 * m.m23 * m.m31 + m.m13 * m.m21 * m.m32
+            - m.m13 * m.m22 * m.m31 - m.m12 * m.m21 * m.m33 - m.m11 * m.m23 * m.m32;
+    return determinant;
 }

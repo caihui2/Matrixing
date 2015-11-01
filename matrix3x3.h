@@ -13,6 +13,10 @@ extern const int YZ_PROJECTION;
 extern const int X_MIRROR;
 extern const int Y_MIRROR;
 extern const int Z_MIRROR;
+
+extern const int XY_SHEAR;
+extern const int XZ_SHEAR;
+extern const int YZ_SHEAR;
 class Matrix3X3
 {
 public:
@@ -25,7 +29,7 @@ public:
     void setScale(Vector &v);
     void setNormalProjection(int projectionMode);
     void setMirror(int mirrorMode);
-
+    void setShear(int shearMode, float s, float t);
 
     //Overwrite operator
     Vector operator *(Vector &v);
@@ -34,4 +38,5 @@ public:
   void printlnMatix(Matrix3X3 &m);
   Matrix3X3 transpose(Matrix3X3 &m);
   void calculateSinCos(float *sin, float *cos, float theta);
+  float getDeterminant(Matrix3X3 &m);
 #endif // MATRIX3X3_H
