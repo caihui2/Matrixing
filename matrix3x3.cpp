@@ -119,6 +119,8 @@ void Matrix3X3::setNormalProjection(int projectionMode)
     }
 }
 
+
+
 /**
  * @brief Matrix3X3::setMirror
  * @param mirrorMode
@@ -217,4 +219,25 @@ float getDeterminant(Matrix3X3 &m)
     float determinant = m.m11 * m.m22 * m.m33 + m.m12 * m.m23 * m.m31 + m.m13 * m.m21 * m.m32
             - m.m13 * m.m22 * m.m31 - m.m12 * m.m21 * m.m33 - m.m11 * m.m23 * m.m32;
     return determinant;
+}
+
+/**
+ * @brief getInverse
+ * @param m
+ * @return
+ */
+Matrix3X3 getInverse(Matrix3X3 &m)
+{
+    float deter = 1.0 / getDeterminant(m);
+    float m11 = (m.m22 * m.m33 - m.m23 * m.m32) * deter;
+    float m12 = (m.m23 * m.m31 - m.m21 * m.m33) * deter;
+    float m13 = (m.m21 * m.m32 - m.m23 * m.m31) * deter;
+    float m21 = (m.m13 * m.m32 - m.m12 * m.m33) * deter;
+    float m22 = (m.m11 * m.m33 - m.m13 * m.m31) * deter;
+    float m23 = (m.m12 * m.m31 - m.m11 * m.m32) * deter;
+    float m31 = (m.m12 * m.m23 - m.m13 * m.m22) * deter;
+    float m32 = (m.m13 * m.m21-  m.m11 * m.m23) * deter;
+    float m33 = (m.m11 * m.m22 - m.m12 * m.m21) * deter;
+    Matrix3X3 rm(m11,m21,m31,m12,m22,m32,m13,m23,m33);
+    return rm;
 }

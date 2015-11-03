@@ -39,4 +39,5 @@ public:
   Matrix3X3 transpose(Matrix3X3 &m);
   void calculateSinCos(float *sin, float *cos, float theta);
   float getDeterminant(Matrix3X3 &m);
+  Matrix3X3 getInverse(Matrix3X3 &m);
 #endif // MATRIX3X3_H
