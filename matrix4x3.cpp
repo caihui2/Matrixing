@@ -1,4 +1,4 @@
-#include "matrix3x3.h"
+#include "matrix4x3.h"
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -164,6 +164,13 @@ void Matrix3X3::setShear(int shearMode, float s, float t)
         m31 = 0; m32 = 0;  m33 = 1;
         break;
     }
+}
+
+void Matrix3X3::setTranslation(Vector &v)
+{
+   tx = v.x;
+   ty = v.y;
+   tx = v.z;
 }
 
 

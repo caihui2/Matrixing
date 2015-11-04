@@ -1,5 +1,5 @@
-#ifndef MATRIX3X3_H
-#define MATRIX3X3_H
+#ifndef MATRIX4X3_H
+#define MATRIX4X3_H
 #include "vector.h"
 
 extern const int X_ROTATION;
@@ -23,6 +23,7 @@ public:
     float m11, m12, m13;
     float m21, m22, m23;
     float m31, m32, m33;
+    float tx,  ty , tz;
     Matrix3X3();
     Matrix3X3(float m11, float m12, float m13, float m21, float m22, float m23, float m31, float m32, float m33);
     void setRotationMatrix(int direction, float theta);
@@ -30,6 +31,7 @@ public:
     void setNormalProjection(int projectionMode);
     void setMirror(int mirrorMode);
     void setShear(int shearMode, float s, float t);
+    void setTranslation(Vector &v);
 
     //Overwrite operator
     Vector operator *(Vector &v);
