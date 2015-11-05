@@ -5,12 +5,14 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     vector.cpp \
-    matrix3x3.cpp
+    matrix4x3.cpp \
+    rotationmatrix.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
 
 HEADERS += \
     vector.h \
-    matrix3x3.h
+    matrix4x3.h \
+    rotationmatrix.h
 

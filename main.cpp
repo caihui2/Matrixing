@@ -1,13 +1,17 @@
 #include <iostream>
 #include "vector.h"
-#include "matrix3x3.h"
+#include "matrix4x3.h"
+#include "rotationmatrix.h"
 using namespace std;
 
 int main()
 {
-    Matrix3X3 m(3, -2, 0, 1, 4, -3, -1, 0, 2);
-   float re =  getDeterminant(m);
-   cout << re << endl;
+    RotationMatrix m;
+    Vector x (10,23,23);
+    Vector vs = m.IntertiaToObject(x,Y_ROTATION, 3.14159);
+    printVector(vs);
+    Vector c=  m.ObjectToIntertia(vs);
+    printVector(c);
     return 0;
 }
 
