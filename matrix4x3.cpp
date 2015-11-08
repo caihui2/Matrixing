@@ -18,6 +18,8 @@ const int XY_SHEAR = 10;
 const int XZ_SHEAR = 11;
 const int YZ_SHEAR = 12;
 
+const float KPIT = 3.1415926;
+
 Matrix4X3::Matrix4X3():m11(0),m12(0),m13(0),m21(0),m22(0),m23(0),m31(0),m32(0),m33(0)
 {
 }
@@ -185,7 +187,7 @@ Vector Matrix4X3::operator *(Vector &v)
 }
 
 
-void printlnMatix(Matrix4X3 &m)
+void printlnMatrix4x3(Matrix4X3 &m)
 {
     cout << "[" << m.m11 << "," << m.m12 << "," << m.m13 <<"]" << endl;
     cout << "[" << m.m21 << "," << m.m22 << "," << m.m23 <<"]" << endl;

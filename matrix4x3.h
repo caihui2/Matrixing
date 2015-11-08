@@ -17,6 +17,8 @@ extern const int Z_MIRROR;
 extern const int XY_SHEAR;
 extern const int XZ_SHEAR;
 extern const int YZ_SHEAR;
+
+extern const float KPIT;
 class Matrix4X3
 {
 public:
@@ -37,7 +39,7 @@ public:
     Vector operator *(Vector &v);
 
 };
-  void printlnMatix(Matrix4X3 &m);
+  void printlnMatrix4x3(Matrix4X3 &m);
   Matrix4X3 transpose(Matrix4X3 &m);
   void calculateSinCos(float *sin, float *cos, float theta);
   float getDeterminant(Matrix4X3 &m);
