@@ -7,11 +7,19 @@ using namespace std;
 int main()
 {
     RotationMatrix m;
-    Vector x (10,23,23);
-    Vector vs = m.IntertiaToObject(x,Y_ROTATION, 3.14159);
-    printVector(vs);
-    Vector c=  m.ObjectToIntertia(vs);
+    Vector x (10, 20, 30);
+    m.setUpRotation(Y_ROTATION_MATRIX, 3.1415926 / 180 * 90);
+    Vector objectVector = m.IntertiaToObject(x);
+    printVector(objectVector);
+    Vector c=  m.ObjectToIntertia(objectVector);
     printVector(c);
+    RotationMatrix rota;
+    EulerAngles eu(0, 3.1415926 / 180 * 90, 0);
+    rota.setUpEulerangles(eu);
+    Vector Obj = m.IntertiaToObject(x);
+    printVector(Obj);
+    Vector in = m.ObjectToIntertia(Obj);
+    printVector(in);
     return 0;
 }
 

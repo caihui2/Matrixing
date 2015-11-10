@@ -29,6 +29,27 @@ void RotationMatrix::identity()
     m31 = 0; m32 = 0; m33 = 1;
 }
 
+
+/**
+ * @brief Matri4X3::setRotationMatrix
+ * @param direction select rotation drection (X_ROTATION_MATRIX, Y_ROTATION_MATRIX,Z_ROTATION_MATRIX)
+ * @param theta rotation angle
+ *
+ *X_ROTATION formula
+ * [ 1,   0   ,   0   ]
+ * [ 0, cosθ  ,  sinθ ]
+ * [ 0, -sinθ ,  cosθ ]
+ *
+ *Y_ROTATION  formula
+ * [cosθ, 0 ,  -sinθ  ]
+ * [ 0  , 1 ,     0   ]
+ * [ sinθ，0,   cosθ  ]
+ *Z_ROTATION formula
+ * [cosθ, sinθ,   0   ]
+ * [-sinθ，cosθ,  0   ]
+ * [  0   ,  0 ,  1   ]
+ *
+ */
 void RotationMatrix::setUpRotation(int rotationMode, float theta)
 {
     float cos, sin;
@@ -50,6 +71,41 @@ void RotationMatrix::setUpRotation(int rotationMode, float theta)
         m31 = 0; m32 = 0;  m33 = 1;
         break;
     }
+}
+
+/**
+ * @brief RotationMatrix::setUpEulerangles
+ * @param e
+ * formula
+ * M惯性->物体　＝ HPB
+ *   [cosH 0 sinH ][1    0    0   ][cosB   -sinB   0]
+ * = [ 0   1   0  ][0   cosP -sinP][sinB   cosB    0]
+ *   [-sinH 0 cosH][0   sinP  cosP][ 0       0     1]
+ *
+ *  [cosH * cosB + sinH * sinP * sinB   -cosH * sinB + sinH * sinP * cosB    sinH * cosP]
+ * =[           sinB * cosP                         cosB * cosP                  -sinP  ]
+ *  [-sinH * cosB +   cosH * sinP * sinB   sinB * sinH + cosH *sinP * cosB    cosH * cosP]
+ * formula
+ * M物体－>惯性
+ *
+ *
+ *
+ */
+void RotationMatrix::setUpEulerangles(EulerAngles &e)
+{
+    float sinH, cosH, sinP, cosP, sinB, cosB;
+    calculateSinCos(&sinH, &cosH, e.heading);
+    calculateSinCos(&sinP, &cosP, e.pitch);
+    calculateSinCos(&sinB, &cosB, e.bank);
+    m11 = cosH * cosB + sinH * sinP * sinB;
+    m12 = -cosH * sinB + sinH * sinP * cosB;
+    m13 = sinH * cosP;
+    m21 = sinB * cosP;
+    m22 = cosB * cosP;
+    m23 = -sinP;
+    m31 = -sinH * cosB + cosH * sinP * sinB;
+    m32 = sinB * sinH + cosH * sinP * cosB;
+    m33 = cosH * cosP;
 }
 
 Vector RotationMatrix::IntertiaToObject(Vector &v)
