@@ -7,7 +7,8 @@ SOURCES += main.cpp \
     vector.cpp \
     matrix4x3.cpp \
     rotationmatrix.cpp \
-    eulerangles.cpp
+    eulerangles.cpp \
+    quaternion.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -16,5 +17,6 @@ HEADERS += \
     vector.h \
     matrix4x3.h \
     rotationmatrix.h \
-    eulerangles.h
+    eulerangles.h \
+    quaternion.h
 

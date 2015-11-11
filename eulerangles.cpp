@@ -15,3 +15,5 @@ EulerAngles::EulerAngles(float heading, float pitch, float bank)
     this->pitch = pitch;
     this->bank = bank;
 }
+
+
