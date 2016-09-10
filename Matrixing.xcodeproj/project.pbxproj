@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B961DE31D83B3C900490787 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B961DE11D83B3C900490787 /* Vector3.cpp */; };
 		3BC7898A1D82C99F005CD4E7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BC789891D82C99F005CD4E7 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B961DE11D83B3C900490787 /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
+		3B961DE21D83B3C900490787 /* Vector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
 		3BC789861D82C99F005CD4E7 /* Matrixing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Matrixing; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC789891D82C99F005CD4E7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				3BC789891D82C99F005CD4E7 /* main.cpp */,
+				3B961DE11D83B3C900490787 /* Vector3.cpp */,
+				3B961DE21D83B3C900490787 /* Vector3.hpp */,
 			);
 			path = Matrixing;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B961DE31D83B3C900490787 /* Vector3.cpp in Sources */,
 				3BC7898A1D82C99F005CD4E7 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +245,7 @@
 				3BC7898F1D82C99F005CD4E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
