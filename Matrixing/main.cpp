@@ -29,5 +29,20 @@ int main(int argc, const char * argv[]) {
     Vector3 v4(5, -4 , 7);
     float r = vectorMag(v4);
     cout << "向量的长度:" << r << endl;
-    return 0;
+    
+    Vector3 v5 (-5, 0, 0.4);
+    Vector3 v6 = v5 * -3;
+    print_v(v6);
+    
+    
+    Vector3 v11(12, -5, 0);
+    v11.normalize();
+    print_v(v11);
+    
+    
+    Vector3 x(5, 0 , 0);
+    Vector3 y(-1, 8, 0);
+    float  d = distance(x, y);
+    cout << d<< endl;
+        return 0;
 }
