@@ -49,10 +49,16 @@ int main(int argc, const char * argv[]) {
     Vector3 h1(3, -2, 7);
     Vector3 h2(0, 4, -1);
     
+    //求角度
     float dp = h1 * h2 ;
-    
     double arc =  acos( dp / (vectorMag(h1) * vectorMag(h2))) * 180 / 3.14159;
     cout << arc << endl;
     cout << dp << endl;
+    
+    //差乘
+    Vector3 t1(1,3,4);
+    Vector3 t2(2, -5, 8);
+    Vector3 cp = crossProduct(t1, t2);
+    print_v(cp);
         return 0;
 }

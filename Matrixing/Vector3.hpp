@@ -109,4 +109,13 @@ inline float distance(const Vector3 &a, const Vector3 &b) {
 
 }
 
+//差乘
+inline Vector3 crossProduct(const Vector3 &a , const Vector3 &b) {
+    return  Vector3(
+    a.y * b.z - a.z * b.y,
+    a.z * b.x -  a.x * b.z,
+    a.x * b.y -  a.y * b.x
+    );
+}
+
 #endif /* Vector3_hpp */
