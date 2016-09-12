@@ -44,5 +44,15 @@ int main(int argc, const char * argv[]) {
     Vector3 y(-1, 8, 0);
     float  d = distance(x, y);
     cout << d<< endl;
+    
+    
+    Vector3 h1(3, -2, 7);
+    Vector3 h2(0, 4, -1);
+    
+    float dp = h1 * h2 ;
+    
+    double arc =  acos( dp / (vectorMag(h1) * vectorMag(h2))) * 180 / 3.14159;
+    cout << arc << endl;
+    cout << dp << endl;
         return 0;
 }
