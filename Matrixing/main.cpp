@@ -71,38 +71,52 @@ int main(int argc, const char * argv[]) {
 //    Vector3 cp = crossProduct(t1, t2);
 //    print_v(cp);
     
-    Matrix3x3 a, b, c;
-    
-    a.m11 = 1 ,   a.m12 =-5,  a.m13 = 3;
-    a.m21 = 0,    a.m22 =-2, a.m23 = 6;
-    a.m31 = 7,    a.m32 = 2,  a.m33 = -4;
-    
-    b.m11 = -8 ,   b.m12 = 6,  b.m13 = 1;
-    b.m21 = 7,    b.m22 =  0, b.m23 =  -3;
-    b.m31 = 2,    b.m32 = 4,  b.m33 =  5;
-    
-    c = a * b;
-    
-  //  print_M(c);
-    
-    
-    Vector3 v(3, -1, 4);
+//    Matrix3x3 a, b, c;
+//    
+//    a.m11 = 1 ,   a.m12 =-5,  a.m13 = 3;
+//    a.m21 = 0,    a.m22 =-2, a.m23 = 6;
+//    a.m31 = 7,    a.m32 = 2,  a.m33 = -4;
+//    
+//    b.m11 = -8 ,   b.m12 = 6,  b.m13 = 1;
+//    b.m21 = 7,    b.m22 =  0, b.m23 =  -3;
+//    b.m31 = 2,    b.m32 = 4,  b.m33 =  5;
+//    
+//    c = a * b;
+//    
+//  //  print_M(c);
+//    
+//    
+//    Vector3 v(3, -1, 4);
+//    Matrix3x3 m;
+//    m.m11 = -2 ,   m.m12 =0,  m.m13 = 3;
+//    m.m21 = 5,    m.m22 = 7, m.m23 = -6;
+//    m.m31 = 1,    m.m32 = -4,  m.m33 = 2;
+//    
+//    Vector3 r = v * m;
+//    
+//  //  print_v(r);
+//    
+//    Vector3 as(10,0,0), bs;
+//    
+//    Matrix3x3 ms;
+//    ms.setRotate(3, kPiOver2);
+//    bs = as * ms;
+//    
+//   // print_v(bs);
+//    
+//    
+//    Matrix3x3 mz;
+//    Vector3 s(1,2,3), ss;
+//    mz.setUpscale(s);
+//    print_M(mz);
+//
     Matrix3x3 m;
-    m.m11 = -2 ,   m.m12 =0,  m.m13 = 3;
-    m.m21 = 5,    m.m22 = 7, m.m23 = -6;
-    m.m31 = 1,    m.m32 = -4,  m.m33 = 2;
-    
-    Vector3 r = v * m;
-    
-  //  print_v(r);
-    
-    Vector3 as(10,0,0), bs;
-    
-    Matrix3x3 ms;
-    ms.setRotate(3, kPiOver2);
-    bs = as * ms;
-    
-    print_v(bs);
+    Vector3 a(10,20,30);
+    Vector3 n(1,0,0);
+    m.setUpProject(n);
+    Vector3 b = a * m;
+    print_v(b);
+    print_M(m);
     
         return 0;
 }

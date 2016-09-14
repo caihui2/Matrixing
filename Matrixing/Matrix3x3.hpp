@@ -22,6 +22,12 @@ public:
     
     //矩阵旋转
     void setRotate(int axis, float theta);
+    
+    //缩放
+    void setUpscale(const Vector3 &s);
+    
+    // 投影
+    void setUpProject(const Vector3 &n);
 };
 
 //矩阵的乘法 矩阵和矩阵

@@ -38,6 +38,29 @@ void Matrix3x3::setRotate(int axis, float theta){
 
 }
 
+// 投影
+void Matrix3x3::setUpProject(const Vector3 &n) {
+    assert((n *n - 1.0f) < 0.001);
+    
+    m11 = 1.0f - n.x * n.x;
+    m22 = 1.0f - n.y * n.y;
+    m33 = 1.0f - n.z * n.z;
+    
+    m21 = m21 = -n.x * n.y;
+    m13 = m31 = -n.x * n.z;
+    m23 = m32 = -n.y * n.z;
+}
+
+
+//缩放
+void Matrix3x3::setUpscale(const Vector3 &s) {
+    
+    m11 = s.x;    m12 = 0.0f;    m13 = 0.0f;
+    m21 = 0.0f;   m22 = s.y;    m23 =0.0f;
+    m31 = 0.0f;   m32 =0.0f ;   m33 = s.z;
+
+}
+
 //矩阵的乘法  矩阵和矩阵
 Matrix3x3 operator *(const Matrix3x3 &a, const Matrix3x3 &b){
     Matrix3x3 r;
