@@ -9,6 +9,7 @@
 #include <iostream>
 #include "Vector3.hpp"
 #include "Matrix3x3.hpp"
+#include "MatchUtil.hpp"
 
 using namespace std;
 
@@ -93,6 +94,15 @@ int main(int argc, const char * argv[]) {
     
     Vector3 r = v * m;
     
-    print_v(r);
+  //  print_v(r);
+    
+    Vector3 as(10,0,0), bs;
+    
+    Matrix3x3 ms;
+    ms.setRotate(3, kPiOver2);
+    bs = as * ms;
+    
+    print_v(bs);
+    
         return 0;
 }
