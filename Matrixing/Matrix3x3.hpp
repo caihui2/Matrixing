@@ -31,6 +31,9 @@ public:
     
     //镜像
     void setUpReflect(int axis);
+    
+    //切变
+    void  setUpShear(int axis, float s, float t) ;
 };
 
 //矩阵的乘法 矩阵和矩阵
