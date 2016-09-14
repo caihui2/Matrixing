@@ -28,6 +28,9 @@ public:
     
     // 投影
     void setUpProject(const Vector3 &n);
+    
+    //镜像
+    void setUpReflect(int axis);
 };
 
 //矩阵的乘法 矩阵和矩阵

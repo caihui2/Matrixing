@@ -110,13 +110,13 @@ int main(int argc, const char * argv[]) {
 //    mz.setUpscale(s);
 //    print_M(mz);
 //
-    Matrix3x3 m;
-    Vector3 a(10,20,30);
-    Vector3 n(1,0,0);
-    m.setUpProject(n);
-    Vector3 b = a * m;
-    print_v(b);
-    print_M(m);
+//    Matrix3x3 m;
+//    Vector3 a(10,20,30);
+//    Vector3 n(1,0,0);
+//    m.setUpProject(n);
+//    Vector3 b = a * m;
+//    print_v(b);
+//    print_M(m);
     
         return 0;
 }

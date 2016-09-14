@@ -61,6 +61,32 @@ void Matrix3x3::setUpscale(const Vector3 &s) {
 
 }
 
+//镜像
+void Matrix3x3::setUpReflect(int axis) {
+    
+    switch (axis) {
+        case 1: // x
+            m11 = -1.0f; m12 = 0.0f; m13 = 0.0f;
+            m21 = 0.0f; m22 = 1.0f;   m23 = 0.0f;
+            m31 = 0.0f;  m32 = 0.0f; m33 = 1.0f;
+            break;
+        case 2://y
+            m11 = 1.0f; m12 = 0.0f; m13 = 0.0f;
+            m21 = 0.0f; m22 = -1.0f;   m23 = 0.0f;
+            m31 = 0.0f;  m32 = 0.0f; m33 = 1.0f;
+            break;
+        case 3: //z
+            m11 = 1.0f; m12 = 0.0f; m13 = 0.0f;
+            m21 = 0.0f; m22 = 1.0f;   m23 = 0.0f;
+            m31 = 0.0f;  m32 = 0.0f; m33 = -1.0f;
+            break;
+        default:
+            assert(false);
+            break;
+    }
+   
+}
+
 //矩阵的乘法  矩阵和矩阵
 Matrix3x3 operator *(const Matrix3x3 &a, const Matrix3x3 &b){
     Matrix3x3 r;
