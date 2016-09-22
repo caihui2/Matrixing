@@ -113,6 +113,13 @@ void  Matrix3x3::setUpShear(int axis, float s, float t) {
     }
 }
 
+//计算行列式
+float determiant(const Matrix3x3 &m) {
+    return m.m11 * (m.m22 * m.m33 - m.m23 * m.m32)
+        + m.m12 * (m.m23 * m.m31 - m.m21  * m.m33)
+    + m.m13 * (m.m21 * m.m32 - m.m22 * m.m31);
+}
+
 //矩阵的乘法  矩阵和矩阵
 Matrix3x3 operator *(const Matrix3x3 &a, const Matrix3x3 &b){
     Matrix3x3 r;

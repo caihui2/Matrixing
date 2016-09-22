@@ -34,6 +34,9 @@ public:
     
     //切变
     void  setUpShear(int axis, float s, float t) ;
+    
+    //计算行列式
+    float determiant(const Matrix3x3 &m);
 };
 
 //矩阵的乘法 矩阵和矩阵
